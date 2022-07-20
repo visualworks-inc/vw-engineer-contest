@@ -30,3 +30,10 @@ php artisan serve
 ```
 2. ブラウザで「 http://127.0.0.1:8000/ 」にアクセスする。
 1. 「Generate app key」ボタンを押下して、画面を更新する。
+
+## ツール
+### Git Bash
+Windows環境で上記コマンドが実行できます。
+
+### TablePlus（https://tableplus.com/）
+SQLiteのテーブルをGUIで確認できます。
