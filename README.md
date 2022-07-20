@@ -17,14 +17,6 @@ cp .env.example .env
 composer install
 ```
 ```
-# 開発サーバーの起動
-php artisan serve
-```
-2. ブラウザで「 http://127.0.0.1:8000/ 」にアクセスする。
-1. 「Generate app key」ボタンを押下して、画面を更新する。
-1. プロジェクト配下（vw-engineer-contest/）で下記コマンドを実行する。
-
-```
 # データベースファイルを作成
 touch database/database.sqlite
 ```
@@ -32,3 +24,9 @@ touch database/database.sqlite
 # マイグレーション実行
 php artisan migrate:fresh --seed
 ```
+```
+# 開発サーバーの起動
+php artisan serve
+```
+2. ブラウザで「 http://127.0.0.1:8000/ 」にアクセスする。
+1. 「Generate app key」ボタンを押下して、画面を更新する。
