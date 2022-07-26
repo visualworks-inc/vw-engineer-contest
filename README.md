@@ -24,6 +24,12 @@ touch database/database.sqlite
 # マイグレーション実行
 php artisan migrate:fresh --seed
 ```
+下記のエラーが発生した場合、php.iniの`;extension=pdo_sqlite`を有効化する。
+```
+Illuminate\Database\QueryException
+
+  could not find driver (SQL: PRAGMA foreign_keys = ON;)
+```
 ```
 # 開発サーバーの起動
 php artisan serve
