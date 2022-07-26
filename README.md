@@ -43,3 +43,5 @@ Windows環境で上記コマンドが実行できます。
 
 ### TablePlus（https://tableplus.com/）
 SQLiteのテーブルをGUIで確認できます。
+
+変更
