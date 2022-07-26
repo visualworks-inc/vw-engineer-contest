@@ -24,12 +24,29 @@
     <h2>VWエンジニアコンテスト応募</h2>
     <form action="/contest/confirm" method="POST">
         <label for="name">名前:</label>
-        <input id="name" name="name" required>
+        <input id="name" name="name" value="{{ old('name') }}" required onblur="test();">
+        <br>
+        @if (session('message'))
+        <div class="alert alert-danger">
+            {{ session('message') }}
+        </div>
+        @endif
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">
+                {{ $error }}
+            </div>
+            @endforeach
+        </div>
+        @endif
         <label for="reason">志望動機:</label>
-        <textarea id="reason" name="reason" required></textarea>
+        <textarea id="reason" name="reason" required>{{ old('reason') }}</textarea>
+        <br>
         <label for="language">プログラミング言語:</label>
-        <input id="language" name="language" required>
+        <input id="language" name="language" value="{{ old('language') }}" required>
         {{ csrf_field() }}
+        <br>
         <button type="submit">確認</button>
     </form>
     <script>

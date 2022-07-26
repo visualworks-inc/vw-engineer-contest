@@ -18,7 +18,7 @@ class LanguageController extends Controller
     public function get_languages(Request $request)
     {
         $language = $request->input('language');
-        $languages = CodingLanguage::where('language', 'LIKE', '%'. $language .'%')->get();
+        $languages = CodingLanguage::where('language', 'LIKE', $language .'%')->get();
 
         $response = [];
         for ($i=1; $i < count($languages); $i++) {

@@ -22,10 +22,21 @@ class ContestController extends Controller
      */
     public function confirm(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => ['required'],
+            'reason' => ['required'],
+            'language' => ['required'],
+        ]);
+        $is_used_name = Application::is_used_name($validatedData['name']);
+        if ($is_used_name) {
+            return redirect('/contest')
+                ->withInput()
+                ->with('message', '既に名前が使用されています。');
+        }
         return view('confirm', [
-            'name' => $request->name,
-            'reason' => $request->reason,
-            'language' => $request->language,
+            'name' => $validatedData['name'],
+            'reason' => $validatedData['reason'],
+            'language' => $validatedData['language'],
         ]);
     }
 
@@ -36,11 +47,17 @@ class ContestController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => ['required'],
+            'reason' => ['required'],
+            'language' => ['required'],
+        ]);
         $application = new Application;
         $application->name = $request->name;
         $application->reason = $request->reason;
         $application->language = $request->language;
         $application->save();
+        // Application::create($validatedData);
 
         return redirect('/contest/complete');
     }

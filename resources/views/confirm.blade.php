@@ -30,9 +30,14 @@
         <textarea id="reason" name="reason" hidden>{{ $reason }}</textarea>
         <input id="language" name="language" value="{{ $language }}" hidden>
         {{ csrf_field() }}
-        <button type="button" onclick="location.href='/contest'">戻る</button>
+        <button type="button" id="back">戻る</button>
         <button type="submit">送信する</button>
     </form>
 </body>
+<script>
+    document.getElementById('back').addEventListener('click', () => {
+        history.back();
+    });
+</script>
 
 </html>
