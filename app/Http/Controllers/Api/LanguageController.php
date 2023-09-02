@@ -21,7 +21,7 @@ class LanguageController extends Controller
         $languages = CodingLanguage::where('language', 'LIKE', $language .'%')->get();
 
         $response = [];
-        for ($i=1; $i < count($languages); $i++) {
+        for ($i=0; $i < count($languages); $i++) {
                 $response[] = $languages[$i]->language;
         }
 
